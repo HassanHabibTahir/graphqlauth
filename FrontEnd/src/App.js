@@ -5,6 +5,7 @@ import Graph from "./Graph";
 import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import AddProduct from "./components/AddProduct";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
+          <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>

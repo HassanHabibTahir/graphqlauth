@@ -1,4 +1,5 @@
 const { SecondPair } = require("./Models/Register");
+const axios = require("axios");
 const bcrypt = require("bcryptjs");
 function hash(password) {
   return bcrypt.hashSync(password, 10);
@@ -15,6 +16,14 @@ const resolvers = {
       );
       console.log(passwordIsValid, "passwordisValid");
       return passwordIsValid ? findUser : null;
+    },
+    Products: async (_, values) => {
+      try {
+        const products = await axios.get("https://fakestoreapi.com/products");
+        return products?.data;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
   Mutation: {
