@@ -1,6 +1,4 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
-const DATABASE_URL = process.env.MONGO_URI;
+import mongoose from "mongoose";
 
 const connectDB = () => {
   return mongoose.connect(
@@ -20,4 +18,4 @@ const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "MongoDB connection failed"));
 
-module.exports = connectDB;
+export default connectDB;

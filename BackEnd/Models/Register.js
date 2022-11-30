@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
@@ -13,5 +13,4 @@ const JpyGbp = new Schema({
   password: { type: String },
 });
 
-const SecondPair = mongoose.model("JpyGbp", JpyGbp);
-module.exports = { SecondPair };
+export const SecondPair = mongoose.model("JpyGbp", JpyGbp);

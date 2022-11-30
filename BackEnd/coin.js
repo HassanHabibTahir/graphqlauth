@@ -1,6 +1,10 @@
-const { gql } = require("apollo-server");
+import { gql } from "apollo-server";
 
 const typeDefs = gql`
+  scalar Upload
+  type File {
+    url: String
+  }
   type Coin {
     email: String!
     user_name: String!
@@ -41,6 +45,10 @@ const typeDefs = gql`
   type Mutation {
     Register(input: CreateCoin): Coin
   }
+
+  type Mutation {
+    fileUpload(file: [Upload]!): [File]!
+  }
 `;
 
-module.exports = { typeDefs };
+export default typeDefs;

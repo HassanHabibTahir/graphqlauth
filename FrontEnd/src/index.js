@@ -6,12 +6,15 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  gql,
+  HttpLink,
 } from "@apollo/client";
+import { createUploadLink } from "apollo-upload-client";
 
 import reportWebVitals from "./reportWebVitals";
 const client = new ApolloClient({
-  uri: "http://localhost:4000",
+  link: createUploadLink({
+    uri: "http://localhost:4000/graphql",
+  }),
   cache: new InMemoryCache(),
 });
 
